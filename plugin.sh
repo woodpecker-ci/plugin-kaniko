@@ -84,6 +84,10 @@ if [[ "${PLUGIN_AUTO_TAG:-}" == "true" ]]; then
     fi  
 fi
 
+if [ -n "${PLUGIN_MIRRORS:-}" ]; then
+    MIRROR="$(echo $PLUGIN_MIRRORS | tr ',' '\n' | while read mirror; do echo "--registry-mirror=${mirror}"; done)"
+fi
+
 if [ -n "${PLUGIN_TAGS:-}" ]; then
     DESTINATIONS=$(echo "${PLUGIN_TAGS}" | tr ',' '\n' | while read tag; do echo "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag} "; done)
 elif [ -f .tags ]; then
@@ -106,4 +110,5 @@ fi
     ${CACHE_REPO:-} \
     ${TARGET:-} \
     ${BUILD_ARGS:-} \
-    ${BUILD_ARGS_FROM_ENV:-}
+    ${BUILD_ARGS_FROM_ENV:-} \
+    ${MIRROR}
