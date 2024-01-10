@@ -111,4 +111,4 @@ fi
     ${TARGET:-} \
     ${BUILD_ARGS:-} \
     ${BUILD_ARGS_FROM_ENV:-} \
-    ${MIRROR}
+    ${MIRROR:-}
