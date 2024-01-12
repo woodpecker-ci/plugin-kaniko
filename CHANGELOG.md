@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.1.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/0.1.1) - 2024-01-12
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543
+
+### 🐛 Bug Fixes
+
+- Fix release pipeline [[#7](https://github.com/woodpecker-ci/plugin-kaniko/pull/7)]
+
 ## [0.1.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/0.1.0) - 2024-01-12
 
 ### ❤️ Thanks to all contributors! ❤️
