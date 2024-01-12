@@ -64,7 +64,6 @@ steps:
 
   release-tag:
     image: woodpeckerci/plugin-docker-buildx:2.3.0
-    depends_on: vendor
     settings:
       repo: *publish_repos
       platforms: *platforms
