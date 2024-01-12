@@ -3,7 +3,7 @@ when:
   - event: tag
   - event: push
     branch:
-      - main
+      - ${CI_REPO_DEFAULT_BRANCH}
       - renovate/*
 
 variables:
@@ -59,7 +59,7 @@ steps:
       tags: next
       logins: *publish_logins
     when:
-      branch: main
+      branch: ${CI_REPO_DEFAULT_BRANCH}
       event: push
 
   release-tag:
