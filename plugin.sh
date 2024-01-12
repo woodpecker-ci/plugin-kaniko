@@ -2,12 +2,12 @@
 
 set -euo pipefail
 
-export PATH=$PATH:/kaniko/
+export PATH="$PATH:/kaniko/"
 
 REGISTRY=${PLUGIN_REGISTRY:-index.docker.io}
 
 if [ "${PLUGIN_USERNAME:-}" ] || [ "${PLUGIN_PASSWORD:-}" ]; then
-    DOCKER_AUTH=`echo -n "${PLUGIN_USERNAME}:${PLUGIN_PASSWORD}" | base64 | tr -d "\n"`
+    DOCKER_AUTH=$(echo -n "${PLUGIN_USERNAME}:${PLUGIN_PASSWORD}" | base64 | tr -d "\n")
 
     cat > /kaniko/.docker/config.json <<DOCKERJSON
 {

@@ -1,0 +1,72 @@
+when:
+  - event: pull_request
+  - event: tag
+  - event: push
+    branch:
+      - ${CI_REPO_DEFAULT_BRANCH}
+      - renovate/*
+
+variables:
+  - &platforms 'linux/amd64,linux/arm64,linux/s390x'
+  # vars used on push / tag events only
+  - publish_logins: &publish_logins
+      # Default DockerHub login
+      - registry: https://index.docker.io/v1/
+        username:
+          from_secret: docker_username
+        password:
+          from_secret: docker_password
+      # Additional Quay.IO login
+      - registry: https://quay.io
+        username:
+          from_secret: QUAY_IO_USER
+        password:
+          from_secret: QUAY_IO_TOKEN
+  - &publish_repos 'docker.io/woodpeckerci/plugin-kaniko,quay.io/woodpeckerci/plugin-kaniko'
+
+steps:
+  lint:
+    image: alpine:3.19
+    commands:
+      - apk add -U shellcheck
+      - shellcheck -e SC3040 -e SC3010 -e SC3037 -e SC2086 -e SC2166 -e SC2002 -e SC2236 -e SC3020 -e SC2162 *.sh
+
+  # TODO: add test of fresh build kaniko
+
+  build-dryrun:
+    image: woodpeckerci/plugin-docker-buildx:2.3.0
+    depends_on:
+      - lint
+    settings:
+      repo: test/repo
+      dry_run: true
+      platforms: *platforms
+      tags: latest
+    when:
+      - event: pull_request
+      - event: push
+        branch: renovate/*
+
+  release-next:
+    image: woodpeckerci/plugin-docker-buildx:2.3.0
+    settings:
+      repo: *publish_repos
+      platforms: *platforms
+      tags: next
+      logins: *publish_logins
+    when:
+      branch: ${CI_REPO_DEFAULT_BRANCH}
+      event: push
+
+  release-tag:
+    image: woodpeckerci/plugin-docker-buildx:2.3.0
+    depends_on: vendor
+    settings:
+      repo: *publish_repos
+      platforms: *platforms
+      auto_tag: true
+      # remove line below if you can read it on a release branch and it's not the latest release branch
+      tags: latest
+      logins: *publish_logins
+    when:
+      event: tag
