@@ -58,15 +58,15 @@ steps:
 - name: build
   image: golang
   commands:
-      - go get 
+      - go get
       - go build
       - make versiontags > .tags
 - name: publish
   image: banzaicloud/drone-kaniko
   settings:
-    registry: registry.example.com 
+    registry: registry.example.com
     repo: registry.example.com/example-project
-    # tags: ${DRONE_COMMIT_SHA} <= it must be left undefined 
+    # tags: ${DRONE_COMMIT_SHA} <= it must be left undefined
     username:
       from_secret: docker-username
     password:
@@ -85,12 +85,12 @@ steps:
 - name: build
   image: golang
   commands:
-      - go get 
+      - go get
       - go build
 - name: publish
   image: banzaicloud/drone-kaniko
   settings:
-    registry: registry.example.com 
+    registry: registry.example.com
     repo: registry.example.com/example-project
     auto_tag: true # higher priority then .tags file
     # tags: ${DRONE_COMMIT_SHA} <= it must be left undefined to use auto_tag
