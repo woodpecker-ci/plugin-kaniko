@@ -67,9 +67,9 @@ if [[ "${PLUGIN_AUTO_TAG:-}" == "true" ]]; then
     # expect number
     echo ${TAG} |grep -E "[a-z-]" &>/dev/null && isNum=1 || isNum=0
 
-    if [ ! -n "${TAG:-}" ];then
+    if [ -z "${TAG:-}" ]; then
         echo "latest" > .tags
-    elif [ ${isNum} -eq 1 -o ${part} -gt 3 ];then
+    elif [ "${isNum}" -eq 1 ] || [ "${part}" -gt 3 ]; then
         echo "${TAG},latest" > .tags
     else
         major=$(echo "${TAG}" |awk -F'.' '{print $1}')
@@ -91,7 +91,7 @@ fi
 if [ -n "${PLUGIN_TAGS:-}" ]; then
     DESTINATIONS=$(echo "${PLUGIN_TAGS}" | tr ',' '\n' | while read tag; do echo "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag} "; done)
 elif [ -f .tags ]; then
-    DESTINATIONS=$(cat .tags| tr ',' '\n' | while read tag; do echo "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag} "; done)
+    DESTINATIONS=$(tr ',' '\n' < .tags | while read tag; do echo "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag} "; done)
 elif [ -n "${PLUGIN_REPO:-}" ]; then
     DESTINATIONS="--destination=${REGISTRY}/${PLUGIN_REPO}:latest"
 else
