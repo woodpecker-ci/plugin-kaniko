@@ -62,7 +62,7 @@ fi
 # support format Major.Minor.Release or start with `v`
 # docker tags: Major, Major.Minor, Major.Minor.Release and latest
 if [[ "${PLUGIN_AUTO_TAG:-}" == "true" ]]; then
-    TAG=$(echo "${DRONE_TAG:-}" |sed 's/^v//g')
+    TAG=$(echo "${CI_COMMIT_TAG:-}" |sed 's/^v//g')
     part=$(echo "${TAG}" |tr '.' '\n' |wc -l)
     # expect number
     echo "${TAG}" |grep -E "[a-z-]" &>/dev/null && isNum=1 || isNum=0
