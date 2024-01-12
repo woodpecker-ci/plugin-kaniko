@@ -65,7 +65,7 @@ if [[ "${PLUGIN_AUTO_TAG:-}" == "true" ]]; then
     TAG=$(echo "${DRONE_TAG:-}" |sed 's/^v//g')
     part=$(echo "${TAG}" |tr '.' '\n' |wc -l)
     # expect number
-    echo ${TAG} |grep -E "[a-z-]" &>/dev/null && isNum=1 || isNum=0
+    echo "${TAG}" |grep -E "[a-z-]" &>/dev/null && isNum=1 || isNum=0
 
     if [ -z "${TAG:-}" ]; then
         echo "latest" > .tags
@@ -85,7 +85,7 @@ if [[ "${PLUGIN_AUTO_TAG:-}" == "true" ]]; then
 fi
 
 if [ -n "${PLUGIN_MIRRORS:-}" ]; then
-    MIRROR="$(echo $PLUGIN_MIRRORS | tr ',' '\n' | while read mirror; do echo "--registry-mirror=${mirror}"; done)"
+    MIRROR="$(echo "${PLUGIN_MIRRORS}" | tr ',' '\n' | while read mirror; do echo "--registry-mirror=${mirror}"; done)"
 fi
 
 if [ -n "${PLUGIN_TAGS:-}" ]; then
@@ -100,15 +100,15 @@ else
     CACHE=""
 fi
 
-/kaniko/executor -v ${LOG} \
-    --context=${CONTEXT} \
-    --dockerfile=${DOCKERFILE} \
-    ${EXTRA_OPTS} \
-    ${DESTINATIONS} \
-    ${CACHE:-} \
-    ${CACHE_TTL:-} \
-    ${CACHE_REPO:-} \
-    ${TARGET:-} \
-    ${BUILD_ARGS:-} \
-    ${BUILD_ARGS_FROM_ENV:-} \
-    ${MIRROR:-}
+/kaniko/executor -v "${LOG}" \
+    --context="${CONTEXT}" \
+    --dockerfile="${DOCKERFILE}" \
+    "${EXTRA_OPTS}" \
+    "${DESTINATIONS}" \
+    "${CACHE:-}" \
+    "${CACHE_TTL:-}" \
+    "${CACHE_REPO:-}" \
+    "${TARGET:-}" \
+    "${BUILD_ARGS:-}" \
+    "${BUILD_ARGS_FROM_ENV:-}" \
+    "${MIRROR:-}"
