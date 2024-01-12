@@ -65,11 +65,11 @@ if [[ "${PLUGIN_AUTO_TAG:-}" == "true" ]]; then
     TAG=$(echo "${DRONE_TAG:-}" |sed 's/^v//g')
     part=$(echo "${TAG}" |tr '.' '\n' |wc -l)
     # expect number
-    echo ${TAG} |grep -E "[a-z-]" &>/dev/null && isNum=1 || isNum=0
+    echo "${TAG}" |grep -E "[a-z-]" &>/dev/null && isNum=1 || isNum=0
 
-    if [ ! -n "${TAG:-}" ];then
+    if [ -z "${TAG:-}" ]; then
         echo "latest" > .tags
-    elif [ ${isNum} -eq 1 -o ${part} -gt 3 ];then
+    elif [ "${isNum}" -eq 1 ] || [ "${part}" -gt 3 ]; then
         echo "${TAG},latest" > .tags
     else
         major=$(echo "${TAG}" |awk -F'.' '{print $1}')
@@ -85,13 +85,13 @@ if [[ "${PLUGIN_AUTO_TAG:-}" == "true" ]]; then
 fi
 
 if [ -n "${PLUGIN_MIRRORS:-}" ]; then
-    MIRROR="$(echo $PLUGIN_MIRRORS | tr ',' '\n' | while read mirror; do echo "--registry-mirror=${mirror}"; done)"
+    MIRROR="$(echo "${PLUGIN_MIRRORS}" | tr ',' '\n' | while read mirror; do echo "--registry-mirror=${mirror}"; done)"
 fi
 
 if [ -n "${PLUGIN_TAGS:-}" ]; then
     DESTINATIONS=$(echo "${PLUGIN_TAGS}" | tr ',' '\n' | while read tag; do echo "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag} "; done)
 elif [ -f .tags ]; then
-    DESTINATIONS=$(cat .tags| tr ',' '\n' | while read tag; do echo "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag} "; done)
+    DESTINATIONS=$(tr ',' '\n' < .tags | while read tag; do echo "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag} "; done)
 elif [ -n "${PLUGIN_REPO:-}" ]; then
     DESTINATIONS="--destination=${REGISTRY}/${PLUGIN_REPO}:latest"
 else
@@ -100,15 +100,15 @@ else
     CACHE=""
 fi
 
-/kaniko/executor -v ${LOG} \
-    --context=${CONTEXT} \
-    --dockerfile=${DOCKERFILE} \
-    ${EXTRA_OPTS} \
-    ${DESTINATIONS} \
-    ${CACHE:-} \
-    ${CACHE_TTL:-} \
-    ${CACHE_REPO:-} \
-    ${TARGET:-} \
-    ${BUILD_ARGS:-} \
-    ${BUILD_ARGS_FROM_ENV:-} \
-    ${MIRROR:-}
+/kaniko/executor -v "${LOG}" \
+    --context="${CONTEXT}" \
+    --dockerfile="${DOCKERFILE}" \
+    "${EXTRA_OPTS}" \
+    "${DESTINATIONS}" \
+    "${CACHE:-}" \
+    "${CACHE_TTL:-}" \
+    "${CACHE_REPO:-}" \
+    "${TARGET:-}" \
+    "${BUILD_ARGS:-}" \
+    "${BUILD_ARGS_FROM_ENV:-}" \
+    "${MIRROR:-}"
