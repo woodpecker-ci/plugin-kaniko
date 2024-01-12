@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.0.0) - 2024-01-12
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543
+
+### 💥 Breaking changes
+
+- Switch to Woodpecker Environment Variables [[#9](https://github.com/woodpecker-ci/plugin-kaniko/pull/9)]
+
 ## [0.1.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/0.1.1) - 2024-01-12
 
 ### ❤️ Thanks to all contributors! ❤️
