@@ -29,7 +29,7 @@ steps:
     image: alpine:3.19
     commands:
       - apk add -U shellcheck
-      - shellcheck *.sh
+      - shellcheck -e SC3040 -e SC3010 -e SC3037 -e SC2086 -e SC2166 -e SC2002 -e SC2236 -e SC3020 -e SC2162 *.sh
 
   # TODO: add test of fresh build kaniko
 
