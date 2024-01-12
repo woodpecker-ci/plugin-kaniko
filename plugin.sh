@@ -4,7 +4,7 @@ set -euo pipefail
 
 export PATH="$PATH:/kaniko/"
 
-REGISTRY=${PLUGIN_REGISTRY:-index.docker.io}
+REGISTRY=${PLUGIN_REGISTRY:-https://index.docker.io/v1/}
 
 if [ "${PLUGIN_USERNAME:-}" ] || [ "${PLUGIN_PASSWORD:-}" ]; then
     DOCKER_AUTH=$(echo -n "${PLUGIN_USERNAME}:${PLUGIN_PASSWORD}" | base64 | tr -d "\n")
@@ -27,7 +27,7 @@ fi
 
 DOCKERFILE=${PLUGIN_DOCKERFILE:-Dockerfile}
 CONTEXT=${PLUGIN_CONTEXT:-$PWD}
-LOG=${PLUGIN_LOG:-info}
+LOG=${PLUGIN_LOG_LEVEL:-info}
 EXTRA_OPTS=""
 
 if [[ -n "${PLUGIN_TARGET:-}" ]]; then
@@ -92,7 +92,7 @@ if [ -n "${PLUGIN_TAGS:-}" ]; then
     DESTINATIONS=$(echo "${PLUGIN_TAGS}" | tr ',' '\n' | while read tag; do echo "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag} "; done)
 elif [ -f .tags ]; then
     DESTINATIONS=$(tr ',' '\n' < .tags | while read tag; do echo "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag} "; done)
-elif [ -n "${PLUGIN_REPO:-}" ]; then
+elif [ -n "${PLUGIN_REPO:-}" ] && [ "${PLUGIN_DRY_RUN:-}" != "true" ]; then
     DESTINATIONS="--destination=${REGISTRY}/${PLUGIN_REPO}:latest"
 else
     DESTINATIONS="--no-push"
