@@ -75,13 +75,13 @@ if [[ "${PLUGIN_AUTO_TAG:-}" == "true" ]]; then
         major=$(echo "${TAG}" |awk -F'.' '{print $1}')
         minor=$(echo "${TAG}" |awk -F'.' '{print $2}')
         release=$(echo "${TAG}" |awk -F'.' '{print $3}')
-    
+
         major=${major:-0}
         minor=${minor:-0}
         release=${release:-0}
-    
+
         echo "${major},${major}.${minor},${major}.${minor}.${release},latest" > .tags
-    fi  
+    fi
 fi
 
 if [ -n "${PLUGIN_MIRRORS:-}" ]; then
