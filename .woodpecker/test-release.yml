@@ -26,8 +26,9 @@ variables:
 
 steps:
   lint:
-    image: docker.io/koalaman/shellcheck
+    image: alpine:3.19
     commands:
+      - apk add -U shellcheck
       - shellcheck *.sh
 
   # TODO: add test of fresh build kaniko
