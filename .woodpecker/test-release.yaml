@@ -39,7 +39,6 @@ steps:
       - lint
     settings:
       repo: test/repo
-      dockerfile: ./docker/Dockerfile.multiarch
       dry_run: true
       platforms: *platforms
       tags: latest
@@ -52,7 +51,6 @@ steps:
     image: woodpeckerci/plugin-docker-buildx:2.3.0
     settings:
       repo: *publish_repos
-      dockerfile: ./docker/Dockerfile.multiarch
       platforms: *platforms
       tags: next
       logins: *publish_logins
@@ -65,7 +63,6 @@ steps:
     depends_on: vendor
     settings:
       repo: *publish_repos
-      dockerfile: ./docker/Dockerfile.multiarch
       platforms: *platforms
       auto_tag: true
       # remove line below if you can read it on a release branch and it's not the latest release branch
