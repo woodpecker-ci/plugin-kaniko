@@ -3,7 +3,7 @@ when:
   - event: tag
   - event: push
     branch:
-      - ${CI_REPO_DEFAULT_BRANCH}
+      - main
       - renovate/*
 
 variables:
