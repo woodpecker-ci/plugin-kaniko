@@ -31,7 +31,7 @@ Settings can be defined using the `settings` option for woodpecker plugins. All 
 | `build-args-from-env` | _none_  | forwards environment variables as custom arguments to the build                                                                                  |
 | `auto-tag`            | `false` | if set generate .tags file, support format Major.Minor.Release or start with `v` docker tags: Major, Major.Minor, Major.Minor.Release and latest |
 | `log-level`           | `info`  | set different log level                                                                                                                          |
-| `target`              | _none_  |
+| `target`              | _none_  | indicate which build stage is the target build stage                                                                                             |
 | `cache`               | `false` | use a cache repo                                                                                                                                 |
 | `cache-repo`          | _none_  | specify the cache repo                                                                                                                           |
 | `cache-ttl`           | _none_  | set the time to live for the cache                                                                                                               |
