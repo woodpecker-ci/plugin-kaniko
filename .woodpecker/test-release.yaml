@@ -30,6 +30,10 @@ steps:
     commands:
       - apk add -U shellcheck
       - shellcheck -e SC3040 -e SC3010 -e SC3037 -e SC3020 -e SC2162 *.sh
+    when:
+      - event: pull_request
+      - event: push
+        branch: renovate/*
 
   # TODO: add test of fresh build kaniko
 
@@ -55,7 +59,7 @@ steps:
       tags: next
       logins: *publish_logins
     when:
-      branch: ${CI_REPO_DEFAULT_BRANCH}
+      branch: main
       event: push
 
   release-tag:
