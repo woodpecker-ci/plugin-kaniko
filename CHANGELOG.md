@@ -10,6 +10,10 @@
 
 - Switch to Woodpecker Environment Variables [[#9](https://github.com/woodpecker-ci/plugin-kaniko/pull/9)]
 
+### Misc
+
+- chore(deps): update alpine docker tag to v3.19 [[#11](https://github.com/woodpecker-ci/plugin-kaniko/pull/11)]
+
 ## [0.1.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/0.1.1) - 2024-01-12
 
 ### ❤️ Thanks to all contributors! ❤️
