@@ -8,6 +8,7 @@
 
 ### 💥 Breaking changes
 
+- Add `dry-run` setting and docs.mf [[#12](https://github.com/woodpecker-ci/plugin-kaniko/pull/12)]
 - Switch to Woodpecker Environment Variables [[#9](https://github.com/woodpecker-ci/plugin-kaniko/pull/9)]
 
 ### Misc
