@@ -1,6 +1,6 @@
 ---
 name: Kaniko
-authors: Woodpecker Authors
+author: Woodpecker Authors
 description: Plugin to build container images without root privileges
 tags: [docker, podman, container, build]
 containerImage: woodpeckerci/plugin-kaniko
