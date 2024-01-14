@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.0.1) - 2024-01-14
+
+### ❤️ Thanks to all contributors! ❤️
+
+@qwerty287
+
+### 📚 Documentation
+
+- Fix author key [[#14](https://github.com/woodpecker-ci/plugin-kaniko/pull/14)]
+
 ## [1.0.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.0.0) - 2024-01-12
 
 ### ❤️ Thanks to all contributors! ❤️
