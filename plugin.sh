@@ -2,9 +2,26 @@
 
 set -euo pipefail
 
+concatenate_strings() {
+    _STR1=${1}
+    _STR2=${2}
+
+    if [ -n "${_STR1}" ]; then
+        _STR1="${_STR1} ${_STR2}"
+    else
+        _STR1="${_STR2}"
+    fi
+
+    echo ${_STR1}
+}
+
 export PATH="$PATH:/kaniko/"
 
 REGISTRY=${PLUGIN_REGISTRY:-https://index.docker.io/v1/}
+
+if [ -f "${PWD}/${PLUGIN_ENV_FILE}" ]; then
+    export $(cat "${PWD}/${PLUGIN_ENV_FILE}" | xargs)
+fi
 
 if [ "${PLUGIN_USERNAME:-}" ] || [ "${PLUGIN_PASSWORD:-}" ]; then
     DOCKER_AUTH=$(echo -n "${PLUGIN_USERNAME}:${PLUGIN_PASSWORD}" | base64 | tr -d "\n")
@@ -35,7 +52,7 @@ if [[ -n "${PLUGIN_TARGET:-}" ]]; then
 fi
 
 if [[ "${PLUGIN_SKIP_TLS_VERIFY:-}" == "true" ]]; then
-    EXTRA_OPTS="--skip-tls-verify=true"
+    EXTRA_OPTS=$(concatenate_strings "${EXTRA_OPTS}" "--skip-tls-verify=true")
 fi
 
 if [[ "${PLUGIN_CACHE:-}" == "true" ]]; then
@@ -55,7 +72,7 @@ if [ -n "${PLUGIN_BUILD_ARGS:-}" ]; then
 fi
 
 if [ -n "${PLUGIN_BUILD_ARGS_FROM_ENV:-}" ]; then
-    BUILD_ARGS_FROM_ENV=$(echo "${PLUGIN_BUILD_ARGS_FROM_ENV}" | tr ',' '\n' | while read build_arg; do echo "--build-arg ${build_arg}=$(eval "echo \$$build_arg")"; done)
+    BUILD_ARGS_FROM_ENV=$(echo "${PLUGIN_BUILD_ARGS_FROM_ENV}" | tr ',' '\n' | while read build_arg; do echo "${build_arg}=$(eval "echo \$$build_arg")"; done)
 fi
 
 # auto_tag, if set auto_tag: true, auto generate .tags file
@@ -88,10 +105,17 @@ if [ -n "${PLUGIN_MIRRORS:-}" ]; then
     MIRROR="$(echo "${PLUGIN_MIRRORS}" | tr ',' '\n' | while read mirror; do echo "--registry-mirror=${mirror}"; done)"
 fi
 
+DESTINATIONS=""
 if [ -n "${PLUGIN_TAGS:-}" ]; then
     DESTINATIONS=$(echo "${PLUGIN_TAGS}" | tr ',' '\n' | while read tag; do echo "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag} "; done)
 elif [ -f .tags ]; then
-    DESTINATIONS=$(tr ',' '\n' < .tags | while read tag; do echo "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag} "; done)
+    while read -r tag; do
+        if [ -n "${DESTINATIONS}" ]; then
+            DESTINATIONS="${DESTINATIONS} --destination=${REGISTRY}/${PLUGIN_REPO}:${tag}"
+        else
+            DESTINATIONS="--destination=${REGISTRY}/${PLUGIN_REPO}:${tag}"
+        fi
+    done < <(sed -e 's/,\s*/\n/g' -e 's/$/\n/'  < .tags)
 elif [ -n "${PLUGIN_REPO:-}" ] && [ "${PLUGIN_DRY_RUN:-}" != "true" ]; then
     DESTINATIONS="--destination=${REGISTRY}/${PLUGIN_REPO}:latest"
 else
@@ -100,15 +124,20 @@ else
     CACHE=""
 fi
 
+if [[ "${PLUGIN_IGNORE_VAR_RUN:-}" == "false" ]]; then
+    EXTRA_OPTS=$(concatenate_strings "${EXTRA_OPTS}" "--ignore-var-run=false")
+fi
+
 /kaniko/executor -v "${LOG}" \
     --context="${CONTEXT}" \
     --dockerfile="${DOCKERFILE}" \
-    "${EXTRA_OPTS}" \
-    "${DESTINATIONS}" \
+    ${EXTRA_OPTS} \
+    ${DESTINATIONS} \
     "${CACHE:-}" \
     "${CACHE_TTL:-}" \
     "${CACHE_REPO:-}" \
     "${TARGET:-}" \
-    "${BUILD_ARGS:-}" \
+    --build-arg ${BUILD_ARGS:-} \
     "${BUILD_ARGS_FROM_ENV:-}" \
     "${MIRROR:-}"
+
