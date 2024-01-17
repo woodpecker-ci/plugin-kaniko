@@ -19,7 +19,7 @@ export PATH="$PATH:/kaniko/"
 
 REGISTRY=${PLUGIN_REGISTRY:-https://index.docker.io/v1/}
 
-if [ -f "${PWD}/${PLUGIN_ENV_FILE}" ]; then
+if [ -f "${PWD}/${PLUGIN_ENV_FILE:-}" ]; then
     export $(cat "${PWD}/${PLUGIN_ENV_FILE}" | xargs)
 fi
 
@@ -71,8 +71,11 @@ if [ -n "${PLUGIN_BUILD_ARGS:-}" ]; then
     BUILD_ARGS=$(echo "${PLUGIN_BUILD_ARGS}" | tr ',' '\n' | while read build_arg; do echo "--build-arg=${build_arg}"; done)
 fi
 
+BUILD_ARGS_FROM_ENV=""
 if [ -n "${PLUGIN_BUILD_ARGS_FROM_ENV:-}" ]; then
-    BUILD_ARGS_FROM_ENV=$(echo "${PLUGIN_BUILD_ARGS_FROM_ENV}" | tr ',' '\n' | while read build_arg; do echo "${build_arg}=$(eval "echo \$$build_arg")"; done)
+    for build_arg in $(echo "${PLUGIN_BUILD_ARGS_FROM_ENV}" | sed -e 's/,\s*/ /g'); do
+        BUILD_ARGS_FROM_ENV=$(concatenate_strings "${BUILD_ARGS_FROM_ENV}" "--build-arg ${build_arg}=$(eval "echo \$$build_arg")")
+    done
 fi
 
 # auto_tag, if set auto_tag: true, auto generate .tags file
@@ -109,13 +112,9 @@ DESTINATIONS=""
 if [ -n "${PLUGIN_TAGS:-}" ]; then
     DESTINATIONS=$(echo "${PLUGIN_TAGS}" | tr ',' '\n' | while read tag; do echo "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag} "; done)
 elif [ -f .tags ]; then
-    while read -r tag; do
-        if [ -n "${DESTINATIONS}" ]; then
-            DESTINATIONS="${DESTINATIONS} --destination=${REGISTRY}/${PLUGIN_REPO}:${tag}"
-        else
-            DESTINATIONS="--destination=${REGISTRY}/${PLUGIN_REPO}:${tag}"
-        fi
-    done < <(sed -e 's/,\s*/\n/g' -e 's/$/\n/'  < .tags)
+    for tag in $(sed -e 's/,\s*/ /g' .tags); do
+        DESTINATIONS=$(concatenate_strings "${DESTINATIONS}" "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag}")
+    done
 elif [ -n "${PLUGIN_REPO:-}" ] && [ "${PLUGIN_DRY_RUN:-}" != "true" ]; then
     DESTINATIONS="--destination=${REGISTRY}/${PLUGIN_REPO}:latest"
 else
@@ -137,7 +136,7 @@ fi
     "${CACHE_TTL:-}" \
     "${CACHE_REPO:-}" \
     "${TARGET:-}" \
-    --build-arg ${BUILD_ARGS:-} \
-    "${BUILD_ARGS_FROM_ENV:-}" \
+    ${BUILD_ARGS:-} \
+    ${BUILD_ARGS_FROM_ENV:-} \
     "${MIRROR:-}"
 
