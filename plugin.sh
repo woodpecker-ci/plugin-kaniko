@@ -109,18 +109,18 @@ if [ -n "${PLUGIN_MIRRORS:-}" ]; then
 fi
 
 DESTINATIONS=""
-if [ -n "${PLUGIN_TAGS:-}" ]; then
+if [ "${PLUGIN_DRY_RUN:-}" == "true" ] || [ -z "${PLUGIN_REPO:-}" ]; then
+    DESTINATIONS="--no-push"
+    # Cache is not valid with --no-push
+    CACHE=""
+elif [ -n "${PLUGIN_TAGS:-}" ]; then
     DESTINATIONS=$(echo "${PLUGIN_TAGS}" | tr ',' '\n' | while read tag; do echo "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag} "; done)
 elif [ -f .tags ]; then
     for tag in $(sed -e 's/,\s*/ /g' .tags); do
         DESTINATIONS=$(concatenate_strings "${DESTINATIONS}" "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag}")
     done
-elif [ -n "${PLUGIN_REPO:-}" ] && [ "${PLUGIN_DRY_RUN:-}" != "true" ]; then
+elif [ -n "${PLUGIN_REPO:-}" ]; then
     DESTINATIONS="--destination=${REGISTRY}/${PLUGIN_REPO}:latest"
-else
-    DESTINATIONS="--no-push"
-    # Cache is not valid with --no-push
-    CACHE=""
 fi
 
 if [[ "${PLUGIN_IGNORE_VAR_RUN:-}" == "false" ]]; then
