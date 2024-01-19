@@ -1,10 +1,11 @@
-#!/busybox/sh
+#!/busybox/busybox sh
+# shellcheck disable=SC2187
 
 set -euo pipefail
 
 concatenate_strings() {
-    _STR1=${1}
-    _STR2=${2}
+    _STR1="${1}"
+    _STR2="${2}"
 
     if [ -n "${_STR1}" ]; then
         _STR1="${_STR1} ${_STR2}"
@@ -12,7 +13,7 @@ concatenate_strings() {
         _STR1="${_STR2}"
     fi
 
-    echo ${_STR1}
+    echo "${_STR1}"
 }
 
 export PATH="$PATH:/kaniko/"
@@ -20,7 +21,10 @@ export PATH="$PATH:/kaniko/"
 REGISTRY=${PLUGIN_REGISTRY:-https://index.docker.io/v1/}
 
 if [ -f "${PWD}/${PLUGIN_ENV_FILE:-}" ]; then
-    export $(cat "${PWD}/${PLUGIN_ENV_FILE}" | xargs)
+    # shellcheck disable=SC3001
+    while IFS= read -r line; do
+        export "${line?}"
+    done < <(grep -v '^ *#' < "${PWD}/${PLUGIN_ENV_FILE}")
 fi
 
 if [ "${PLUGIN_USERNAME:-}" ] || [ "${PLUGIN_PASSWORD:-}" ]; then
@@ -47,15 +51,15 @@ CONTEXT=${PLUGIN_CONTEXT:-$PWD}
 LOG=${PLUGIN_LOG_LEVEL:-info}
 EXTRA_OPTS=""
 
-if [[ -n "${PLUGIN_TARGET:-}" ]]; then
+if [ -n "${PLUGIN_TARGET:-}" ]; then
     TARGET="--target=${PLUGIN_TARGET}"
 fi
 
-if [[ "${PLUGIN_SKIP_TLS_VERIFY:-}" == "true" ]]; then
-    EXTRA_OPTS=$(concatenate_strings "${EXTRA_OPTS}" "--skip-tls-verify=true")
+if [ "${PLUGIN_SKIP_TLS_VERIFY:-}" = "true" ]; then
+    EXTRA_OPTS=$(concatenate_strings "${EXTRA_OPTS}" '--skip-tls-verify=true')
 fi
 
-if [[ "${PLUGIN_CACHE:-}" == "true" ]]; then
+if [ "${PLUGIN_CACHE:-}" = "true" ]; then
     CACHE="--cache=true"
 fi
 
@@ -68,23 +72,25 @@ if [ -n "${PLUGIN_CACHE_TTL:-}" ]; then
 fi
 
 if [ -n "${PLUGIN_BUILD_ARGS:-}" ]; then
-    BUILD_ARGS=$(echo "${PLUGIN_BUILD_ARGS}" | tr ',' '\n' | while read build_arg; do echo "--build-arg=${build_arg}"; done)
+    BUILD_ARGS=$(echo "${PLUGIN_BUILD_ARGS}" | tr ',' '\n' | while read -r build_arg; do echo "--build-arg ${build_arg}"; done)
 fi
 
 BUILD_ARGS_FROM_ENV=""
 if [ -n "${PLUGIN_BUILD_ARGS_FROM_ENV:-}" ]; then
-    for build_arg in $(echo "${PLUGIN_BUILD_ARGS_FROM_ENV}" | sed -e 's/,\s*/ /g'); do
+    # shellcheck disable=SC3001
+    while IFS= read -r build_arg; do
         BUILD_ARGS_FROM_ENV=$(concatenate_strings "${BUILD_ARGS_FROM_ENV}" "--build-arg ${build_arg}=$(eval "echo \$$build_arg")")
-    done
+    done < <(echo "${PLUGIN_BUILD_ARGS_FROM_ENV}" | tr ',' '\n')
 fi
 
 # auto_tag, if set auto_tag: true, auto generate .tags file
 # support format Major.Minor.Release or start with `v`
 # docker tags: Major, Major.Minor, Major.Minor.Release and latest
-if [[ "${PLUGIN_AUTO_TAG:-}" == "true" ]]; then
+if [ "${PLUGIN_AUTO_TAG:-}" = "true" ]; then
     TAG=$(echo "${CI_COMMIT_TAG:-}" |sed 's/^v//g')
     part=$(echo "${TAG}" |tr '.' '\n' |wc -l)
     # expect number
+    # shellcheck disable=SC3020
     echo "${TAG}" |grep -E "[a-z-]" &>/dev/null && isNum=1 || isNum=0
 
     if [ -z "${TAG:-}" ]; then
@@ -105,28 +111,32 @@ if [[ "${PLUGIN_AUTO_TAG:-}" == "true" ]]; then
 fi
 
 if [ -n "${PLUGIN_MIRRORS:-}" ]; then
-    MIRROR="$(echo "${PLUGIN_MIRRORS}" | tr ',' '\n' | while read mirror; do echo "--registry-mirror=${mirror}"; done)"
+    MIRROR="$(echo "${PLUGIN_MIRRORS}" | tr ',' '\n' | while read -r mirror; do echo "--registry-mirror=${mirror}"; done)"
 fi
 
 DESTINATIONS=""
-if [ "${PLUGIN_DRY_RUN:-}" == "true" ] || [ -z "${PLUGIN_REPO:-}" ]; then
+if [ "${PLUGIN_DRY_RUN:-}" = "true" ] || [ -z "${PLUGIN_REPO:-}" ]; then
     DESTINATIONS="--no-push"
     # Cache is not valid with --no-push
     CACHE=""
 elif [ -n "${PLUGIN_TAGS:-}" ]; then
-    DESTINATIONS=$(echo "${PLUGIN_TAGS}" | tr ',' '\n' | while read tag; do echo "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag} "; done)
+    DESTINATIONS=$(echo "${PLUGIN_TAGS}" | tr ',' '\n' | while read -r tag; do echo "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag} "; done)
 elif [ -f .tags ]; then
-    for tag in $(sed -e 's/,\s*/ /g' .tags); do
+    # shellcheck disable=SC3001
+    while IFS= read -r tag; do
         DESTINATIONS=$(concatenate_strings "${DESTINATIONS}" "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag}")
-    done
+    done < <(sed -e 's/,\s*/\n/g' .tags)
 elif [ -n "${PLUGIN_REPO:-}" ]; then
     DESTINATIONS="--destination=${REGISTRY}/${PLUGIN_REPO}:latest"
 fi
 
-if [[ "${PLUGIN_IGNORE_VAR_RUN:-}" == "false" ]]; then
+if [ "${PLUGIN_IGNORE_VAR_RUN:-}" = "false" ]; then
     EXTRA_OPTS=$(concatenate_strings "${EXTRA_OPTS}" "--ignore-var-run=false")
 fi
 
+# Double quotes can't be used, otherwise kaniko takes all arguments as one.
+# With bash, an array could have been used to avoid disabling this check.
+# shellcheck disable=SC2086
 /kaniko/executor -v "${LOG}" \
     --context="${CONTEXT}" \
     --dockerfile="${DOCKERFILE}" \
@@ -136,6 +146,6 @@ fi
     "${CACHE_TTL:-}" \
     "${CACHE_REPO:-}" \
     "${TARGET:-}" \
-    ${BUILD_ARGS:-} \
+    "${BUILD_ARGS:-}" \
     ${BUILD_ARGS_FROM_ENV:-} \
     "${MIRROR:-}"
