@@ -17,8 +17,7 @@ variables:
           from_secret: docker_password
       # Additional Quay.IO login
       - registry: https://quay.io
-        username:
-          from_secret: QUAY_IO_USER
+        username: 'woodpeckerci+wp_ci'
         password:
           from_secret: QUAY_IO_TOKEN
   - &publish_repos 'docker.io/woodpeckerci/plugin-kaniko,quay.io/woodpeckerci/plugin-kaniko'
