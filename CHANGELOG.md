@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.0.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.0.1) - 2024-01-14
+## [1.0.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.0.1) - 2024-01-20
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -9,6 +9,10 @@
 ### 📚 Documentation
 
 - Fix author key [[#14](https://github.com/woodpecker-ci/plugin-kaniko/pull/14)]
+
+### Misc
+
+- Use cleartext username [[#21](https://github.com/woodpecker-ci/plugin-kaniko/pull/21)]
 
 ## [1.0.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.0.0) - 2024-01-12
 
