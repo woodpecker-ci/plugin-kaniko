@@ -1,10 +1,10 @@
 # Changelog
 
-## [1.0.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.0.1) - 2024-01-20
+## [1.0.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.0.1) - 2024-01-22
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@qwerty287
+@renovate[bot], @qwerty287
 
 ### 📚 Documentation
 
@@ -12,6 +12,7 @@
 
 ### Misc
 
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v3 [[#22](https://github.com/woodpecker-ci/plugin-kaniko/pull/22)]
 - Use cleartext username [[#21](https://github.com/woodpecker-ci/plugin-kaniko/pull/21)]
 
 ## [1.0.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.0.0) - 2024-01-12
