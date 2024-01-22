@@ -36,7 +36,7 @@ steps:
   # TODO: add test of fresh build kaniko
 
   build-dryrun:
-    image: woodpeckerci/plugin-docker-buildx:2.3.0
+    image: woodpeckerci/plugin-docker-buildx:3.0.0
     depends_on:
       - lint
     settings:
@@ -50,7 +50,7 @@ steps:
         branch: renovate/*
 
   release-next:
-    image: woodpeckerci/plugin-docker-buildx:2.3.0
+    image: woodpeckerci/plugin-docker-buildx:3.0.0
     settings:
       repo: *publish_repos
       platforms: *platforms
@@ -61,7 +61,7 @@ steps:
       event: push
 
   release-tag:
-    image: woodpeckerci/plugin-docker-buildx:2.3.0
+    image: woodpeckerci/plugin-docker-buildx:3.0.0
     settings:
       repo: *publish_repos
       platforms: *platforms
