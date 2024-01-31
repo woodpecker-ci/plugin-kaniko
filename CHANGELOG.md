@@ -1,10 +1,14 @@
 # Changelog
 
-## [1.0.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.0.1) - 2024-01-22
+## [1.1.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.1.0) - 2024-01-31
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@renovate[bot], @qwerty287
+@nicolas-r, @renovate[bot], @qwerty287
+
+### 📈 Enhancement
+
+- Add two new options (--ignore-var-run and env_file), review the dry-run logic and try to fix some issues [[#20](https://github.com/woodpecker-ci/plugin-kaniko/pull/20)]
 
 ### 📚 Documentation
 
