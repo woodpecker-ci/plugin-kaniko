@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.1.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.1.0) - 2024-01-31
+
+### ❤️ Thanks to all contributors! ❤️
+
+@nicolas-r, @renovate[bot], @qwerty287
+
+### 📈 Enhancement
+
+- Add two new options (--ignore-var-run and env_file), review the dry-run logic and try to fix some issues [[#20](https://github.com/woodpecker-ci/plugin-kaniko/pull/20)]
+
+### 📚 Documentation
+
+- Fix author key [[#14](https://github.com/woodpecker-ci/plugin-kaniko/pull/14)]
+
+### Misc
+
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v3 [[#22](https://github.com/woodpecker-ci/plugin-kaniko/pull/22)]
+- Use cleartext username [[#21](https://github.com/woodpecker-ci/plugin-kaniko/pull/21)]
+
 ## [1.0.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.0.0) - 2024-01-12
 
 ### ❤️ Thanks to all contributors! ❤️
