@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.1.1) - 2024-02-01
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543
+
+### 🐛 Bug Fixes
+
+- make plugin.sh executable again [[#23](https://github.com/woodpecker-ci/plugin-kaniko/pull/23)]
+
 ## [1.1.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.1.0) - 2024-01-31
 
 ### ❤️ Thanks to all contributors! ❤️
