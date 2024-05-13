@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.1.2](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.1.2) - 2024-05-13
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543, @qwerty287, @renovate[bot]
+
+### 🐛 Bug Fixes
+
+- Fix build arg quoting [[#31](https://github.com/woodpecker-ci/plugin-kaniko/pull/31)]
+
+### Misc
+
+- bump kaniko to v1.22.0 [[#32](https://github.com/woodpecker-ci/plugin-kaniko/pull/32)]
+- Add CODEOWNERS [[#30](https://github.com/woodpecker-ci/plugin-kaniko/pull/30)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v4 [[#28](https://github.com/woodpecker-ci/plugin-kaniko/pull/28)]
+
 ## [1.1.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.1.1) - 2024-02-01
 
 ### ❤️ Thanks to all contributors! ❤️
