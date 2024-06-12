@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.3](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.1.3) - 2024-06-12
+
+### ❤️ Thanks to all contributors! ❤️
+
+@pre-commit-ci[bot]
+
+### Misc
+
+- [pre-commit.ci] pre-commit autoupdate [[#33](https://github.com/woodpecker-ci/plugin-kaniko/pull/33)]
+
 ## [1.1.2](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.1.2) - 2024-05-13
 
 ### ❤️ Thanks to all contributors! ❤️
