@@ -72,7 +72,7 @@ if [ -n "${PLUGIN_CACHE_TTL:-}" ]; then
 fi
 
 if [ -n "${PLUGIN_BUILD_ARGS:-}" ]; then
-    BUILD_ARGS=$(echo "${PLUGIN_BUILD_ARGS}" | tr ',' '\n' | while read -r build_arg; do echo "--build-arg \"${build_arg}\""; done)
+    BUILD_ARGS=$(echo "${PLUGIN_BUILD_ARGS}" | tr ',' '\n' | while read -r build_arg; do echo "--build-arg ${build_arg}"; done)
 fi
 
 BUILD_ARGS_FROM_ENV=""
