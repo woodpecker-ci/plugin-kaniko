@@ -1,10 +1,14 @@
 # Changelog
 
-## [1.1.3](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.1.3) - 2024-06-12
+## [1.1.3](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.1.3) - 2024-07-23
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@pre-commit-ci[bot]
+@ztelliot, @pre-commit-ci[bot]
+
+### 🐛 Bug Fixes
+
+- Fix build arg [[#35](https://github.com/woodpecker-ci/plugin-kaniko/pull/35)]
 
 ### Misc
 
