@@ -59,6 +59,18 @@ if [ "${PLUGIN_SKIP_TLS_VERIFY:-}" = "true" ]; then
     EXTRA_OPTS=$(concatenate_strings "${EXTRA_OPTS}" '--skip-tls-verify=true')
 fi
 
+if [ "${PLUGIN_INSECURE:-}" = "true" ]; then
+    EXTRA_OPTS=$(concatenate_strings "${EXTRA_OPTS}" '--insecure=true')
+fi
+
+if [ "${PLUGIN_INSECURE_PULL:-}" = "true" ]; then
+    EXTRA_OPTS=$(concatenate_strings "${EXTRA_OPTS}" '--insecure-pull=true')
+fi
+
+if [ -n "${PLUGIN_INSECURE_REGISTRY:-}" ]; then
+    EXTRA_OPTS=$(concatenate_strings "${EXTRA_OPTS}" "--insecure-registry=${PLUGIN_INSECURE_REGISTRY}")
+fi
+
 if [ "${PLUGIN_CACHE:-}" = "true" ]; then
     CACHE="--cache=true"
 fi
