@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.4](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.1.4) - 2024-09-04
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543
+
+### Misc
+
+- Update pipeline to use lates buildx plugin [[#37](https://github.com/woodpecker-ci/plugin-kaniko/pull/37)]
+
 ## [1.1.3](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.1.3) - 2024-07-23
 
 ### ❤️ Thanks to all contributors! ❤️
