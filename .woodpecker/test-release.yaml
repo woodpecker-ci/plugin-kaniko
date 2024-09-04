@@ -8,6 +8,7 @@ when:
 
 variables:
   - &platforms 'linux/amd64,linux/arm64,linux/s390x'
+  - &buildx-plugin 'woodpeckerci/plugin-docker-buildx:4.2.0'
   # vars used on push / tag events only
   - publish_logins: &publish_logins
       # Default DockerHub login
@@ -36,7 +37,7 @@ steps:
   # TODO: add test of fresh build kaniko
 
   build-dryrun:
-    image: woodpeckerci/plugin-docker-buildx:4.0.0
+    image: *buildx-plugin
     depends_on:
       - lint
     settings:
@@ -50,7 +51,7 @@ steps:
         branch: renovate/*
 
   release-next:
-    image: woodpeckerci/plugin-docker-buildx:4.0.0
+    image: *buildx-plugin
     settings:
       repo: *publish_repos
       platforms: *platforms
@@ -61,7 +62,7 @@ steps:
       event: push
 
   release-tag:
-    image: woodpeckerci/plugin-docker-buildx:4.0.0
+    image: *buildx-plugin
     settings:
       repo: *publish_repos
       platforms: *platforms
