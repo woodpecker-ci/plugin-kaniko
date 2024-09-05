@@ -1,10 +1,14 @@
 # Changelog
 
-## [1.1.4](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.1.4) - 2024-09-04
+## [1.2.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.2.0) - 2024-09-05
 
 ### ❤️ Thanks to all contributors! ❤️
 
-@6543
+@tkikuchi2000, @6543
+
+### ✨ Features
+
+- Add insecure options [[#36](https://github.com/woodpecker-ci/plugin-kaniko/pull/36)]
 
 ### Misc
 
