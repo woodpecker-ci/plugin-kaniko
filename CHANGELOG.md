@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.2.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.2.0) - 2024-09-05
+
+### ❤️ Thanks to all contributors! ❤️
+
+@tkikuchi2000, @6543
+
+### ✨ Features
+
+- Add insecure options [[#36](https://github.com/woodpecker-ci/plugin-kaniko/pull/36)]
+
+### Misc
+
+- Update pipeline to use lates buildx plugin [[#37](https://github.com/woodpecker-ci/plugin-kaniko/pull/37)]
+
 ## [1.1.3](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.1.3) - 2024-07-23
 
 ### ❤️ Thanks to all contributors! ❤️
