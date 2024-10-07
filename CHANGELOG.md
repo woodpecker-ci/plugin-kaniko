@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.2.1) - 2024-10-07
+
+### 📦️ Dependency
+
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v2 [[#40](https://github.com/woodpecker-ci/plugin-kaniko/pull/40)]
+
+### Misc
+
+- [pre-commit.ci] pre-commit autoupdate [[#43](https://github.com/woodpecker-ci/plugin-kaniko/pull/43)]
+
 ## [1.2.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.2.0) - 2024-09-05
 
 ### ❤️ Thanks to all contributors! ❤️
