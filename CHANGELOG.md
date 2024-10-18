@@ -1,6 +1,10 @@
 # Changelog
 
-## [1.2.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.2.1) - 2024-10-12
+## [1.2.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.2.1) - 2024-10-18
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543
 
 ### 📦️ Dependency
 
@@ -9,6 +13,7 @@
 
 ### Misc
 
+- Use current format of ENV in Dockerfile [[#39](https://github.com/woodpecker-ci/plugin-kaniko/pull/39)]
 - [pre-commit.ci] pre-commit autoupdate [[#43](https://github.com/woodpecker-ci/plugin-kaniko/pull/43)]
 
 ## [1.2.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.2.0) - 2024-09-05
