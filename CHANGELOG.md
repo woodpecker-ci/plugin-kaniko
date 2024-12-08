@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.2.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.2.1) - 2024-12-07
+## [1.2.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.2.1) - 2024-12-08
 
 ### ❤️ Thanks to all contributors! ❤️
 
@@ -8,6 +8,8 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.1.0 [[#51](https://github.com/woodpecker-ci/plugin-kaniko/pull/51)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5.1.0 [[#50](https://github.com/woodpecker-ci/plugin-kaniko/pull/50)]
 - chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3 [[#49](https://github.com/woodpecker-ci/plugin-kaniko/pull/49)]
 - chore(deps): update alpine docker tag to v3.21 [[#48](https://github.com/woodpecker-ci/plugin-kaniko/pull/48)]
 - chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v2.1.1 [[#47](https://github.com/woodpecker-ci/plugin-kaniko/pull/47)]
