@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.2.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.2.1) - 2025-01-17
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543
+
+### 📦️ Dependency
+
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.1.1 [[#52](https://github.com/woodpecker-ci/plugin-kaniko/pull/52)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.1.0 [[#51](https://github.com/woodpecker-ci/plugin-kaniko/pull/51)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5.1.0 [[#50](https://github.com/woodpecker-ci/plugin-kaniko/pull/50)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3 [[#49](https://github.com/woodpecker-ci/plugin-kaniko/pull/49)]
+- chore(deps): update alpine docker tag to v3.21 [[#48](https://github.com/woodpecker-ci/plugin-kaniko/pull/48)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v2.1.1 [[#47](https://github.com/woodpecker-ci/plugin-kaniko/pull/47)]
+- chore(deps): update gcr.io/kaniko-project/executor docker tag to v1.23.2 [[#46](https://github.com/woodpecker-ci/plugin-kaniko/pull/46)]
+- chore(deps): update alpine docker tag to v3.20 [[#45](https://github.com/woodpecker-ci/plugin-kaniko/pull/45)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5 [[#44](https://github.com/woodpecker-ci/plugin-kaniko/pull/44)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v2 [[#40](https://github.com/woodpecker-ci/plugin-kaniko/pull/40)]
+
+### Misc
+
+- Use current format of ENV in Dockerfile [[#39](https://github.com/woodpecker-ci/plugin-kaniko/pull/39)]
+- [pre-commit.ci] pre-commit autoupdate [[#43](https://github.com/woodpecker-ci/plugin-kaniko/pull/43)]
+
 ## [1.2.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.2.0) - 2024-09-05
 
 ### ❤️ Thanks to all contributors! ❤️
