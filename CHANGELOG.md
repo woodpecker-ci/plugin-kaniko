@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update pre-commit hook adrienverge/yamllint to v1.36.1 [[#58](https://github.com/woodpecker-ci/plugin-kaniko/pull/58)]
 - chore(deps): update pre-commit hook adrienverge/yamllint to v1.36.0 [[#57](https://github.com/woodpecker-ci/plugin-kaniko/pull/57)]
 - chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5.2.1 [[#56](https://github.com/woodpecker-ci/plugin-kaniko/pull/56)]
 - chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5.2.0 [[#54](https://github.com/woodpecker-ci/plugin-kaniko/pull/54)]
