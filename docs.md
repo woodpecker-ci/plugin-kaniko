@@ -38,6 +38,7 @@ Settings can be defined using the `settings` option for woodpecker plugins. All 
 | `skip-tls-verify`     | `false` | ignore tls issues                                                                                                                                |
 | `mirrors`             | _none_  | set docker hub mirrors                                                                                                                           |
 | `json-key`            | _none_  | pass a json key to kaniko                                                                                                                        |
+| `docker-config-json`  | _none_  | pass a docker config json to kaniko                                                                                                              |
 | `insecure`            | `false` | push images to a plain HTTP registry.                                                                                                            |
 | `insecure-pull`       | `false` | pull images from a plain HTTP registry.                                                                                                          |
 | `insecure-registry`   | _none_  | use plain HTTP requests when accessing the specified registry.                                                                                   |

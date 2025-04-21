@@ -27,7 +27,12 @@ if [ -f "${PWD}/${PLUGIN_ENV_FILE:-}" ]; then
     done < <(grep -v '^ *#' < "${PWD}/${PLUGIN_ENV_FILE}")
 fi
 
-if [ "${PLUGIN_USERNAME:-}" ] || [ "${PLUGIN_PASSWORD:-}" ]; then
+if [ "${PLUGIN_DOCKER_CONFIG_JSON:-}" ]; then
+    # Docker - config.json
+    # * https://github.com/GoogleContainerTools/kaniko?tab=readme-ov-file#pushing-to-docker-hub
+    # * https://github.com/GoogleContainerTools/kaniko?tab=readme-ov-file#pushing-to-jfrog-container-registry-or-to-jfrog-artifactory
+    echo "${PLUGIN_DOCKER_CONFIG_JSON}" > /kaniko/.docker/config.json
+elif [ "${PLUGIN_USERNAME:-}" ] || [ "${PLUGIN_PASSWORD:-}" ]; then
     DOCKER_AUTH=$(echo -n "${PLUGIN_USERNAME}:${PLUGIN_PASSWORD}" | base64 | tr -d "\n")
 
     cat > /kaniko/.docker/config.json <<DOCKERJSON
