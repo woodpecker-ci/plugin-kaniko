@@ -136,15 +136,21 @@ if [ "${PLUGIN_DRY_RUN:-}" = "true" ] || [ -z "${PLUGIN_REPO:-}" ]; then
     DESTINATIONS="--no-push"
     # Cache is not valid with --no-push
     CACHE=""
-elif [ -n "${PLUGIN_TAGS:-}" ]; then
-    DESTINATIONS=$(echo "${PLUGIN_TAGS}" | tr ',' '\n' | while read -r tag; do echo "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag} "; done)
-elif [ -f .tags ]; then
-    # shellcheck disable=SC3001
-    while IFS= read -r tag; do
-        DESTINATIONS=$(concatenate_strings "${DESTINATIONS}" "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag}")
-    done < <(sed -e 's/,\s*/\n/g' .tags)
-elif [ -n "${PLUGIN_REPO:-}" ]; then
-    DESTINATIONS="--destination=${REGISTRY}/${PLUGIN_REPO}:latest"
+elif [ -n "${PLUGIN_DESTINATIONS:-}" ]; then
+    # Multi repositories
+    DESTINATIONS=$(echo "${PLUGIN_DESTINATIONS}" | tr ',' '\n' | while read -r destination; do echo "--destination=${destination}"; done)
+else
+    # Single repository
+    if [ -n "${PLUGIN_TAGS:-}" ]; then
+        DESTINATIONS=$(echo "${PLUGIN_TAGS}" | tr ',' '\n' | while read -r tag; do echo "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag} "; done)
+    elif [ -f .tags ]; then
+        # shellcheck disable=SC3001
+        while IFS= read -r tag; do
+            DESTINATIONS=$(concatenate_strings "${DESTINATIONS}" "--destination=${REGISTRY}/${PLUGIN_REPO}:${tag}")
+        done < <(sed -e 's/,\s*/\n/g' .tags)
+    elif [ -n "${PLUGIN_REPO:-}" ]; then
+        DESTINATIONS="--destination=${REGISTRY}/${PLUGIN_REPO}:latest"
+    fi
 fi
 
 if [ "${PLUGIN_IGNORE_VAR_RUN:-}" = "false" ]; then
