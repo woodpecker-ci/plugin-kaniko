@@ -1,9 +1,10 @@
 # Changelog
 
-## [1.2.2](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.2.2) - 2025-05-31
+## [1.2.2](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.2.2) - 2025-07-05
 
 ### 📦️ Dependency
 
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.3.0 [[#69](https://github.com/woodpecker-ci/plugin-kaniko/pull/69)]
 - chore(deps): update alpine docker tag to v3.22 [[#67](https://github.com/woodpecker-ci/plugin-kaniko/pull/67)]
 - chore(deps): update gcr.io/kaniko-project/executor docker tag to v1.24.0 [[#66](https://github.com/woodpecker-ci/plugin-kaniko/pull/66)]
 - chore(deps): update pre-commit hook adrienverge/yamllint to v1.37.1 [[#65](https://github.com/woodpecker-ci/plugin-kaniko/pull/65)]
