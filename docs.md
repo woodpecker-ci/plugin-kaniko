@@ -38,6 +38,29 @@ Settings can be defined using the `settings` option for woodpecker plugins. All 
 | `skip-tls-verify`     | `false` | ignore tls issues                                                                                                                                |
 | `mirrors`             | _none_  | set docker hub mirrors                                                                                                                           |
 | `json-key`            | _none_  | pass a json key to kaniko                                                                                                                        |
+| `docker-config-json`  | _none_  | pass a docker config json to kaniko                                                                                                              |
 | `insecure`            | `false` | push images to a plain HTTP registry.                                                                                                            |
 | `insecure-pull`       | `false` | pull images from a plain HTTP registry.                                                                                                          |
 | `insecure-registry`   | _none_  | use plain HTTP requests when accessing the specified registry.                                                                                   |
+| `destinations`        | _none_  | can specify multiple image names from repositories. This can be used in combination with docker-config-json when using multiple registries.      |
+
+## Multi registry push example
+
+ref. [docker docs - Configuration files](https://docs.docker.com/reference/cli/docker/#configuration-files)
+
+```yaml
+settings:
+  # If "destinations" is specified, the following properties will be ignored.
+  # registry: https://index.docker.io
+  # username: your-account
+  # password:
+  #   from_secret: your-password
+  # repo: your-account/name
+  # tags: dev
+  destinations:
+    - index.docker.io/v1/your-account/name:dev
+    - codeberg.org/company/project/your-account/name:prod
+    - codeberg.org/company/project/your-account/name:latest
+  docker_config_json:
+    from_secret: docker_config_json
+```
