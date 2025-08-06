@@ -1,5 +1,33 @@
 # Changelog
 
+## [1.3.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.3.0) - 2025-08-06
+
+### ❤️ Thanks to all contributors! ❤️
+
+@tkikuchi2000
+
+### ✨ Features
+
+- Multiple Registry Authentication and Uploading [[#68](https://github.com/woodpecker-ci/plugin-kaniko/pull/68)]
+
+### 📦️ Dependency
+
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v6 [[#64](https://github.com/woodpecker-ci/plugin-kaniko/pull/64)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.3.0 [[#69](https://github.com/woodpecker-ci/plugin-kaniko/pull/69)]
+- chore(deps): update alpine docker tag to v3.22 [[#67](https://github.com/woodpecker-ci/plugin-kaniko/pull/67)]
+- chore(deps): update gcr.io/kaniko-project/executor docker tag to v1.24.0 [[#66](https://github.com/woodpecker-ci/plugin-kaniko/pull/66)]
+- chore(deps): update pre-commit hook adrienverge/yamllint to v1.37.1 [[#65](https://github.com/woodpecker-ci/plugin-kaniko/pull/65)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.2.0 [[#63](https://github.com/woodpecker-ci/plugin-kaniko/pull/63)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.1.4 [[#62](https://github.com/woodpecker-ci/plugin-kaniko/pull/62)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5.2.2 [[#61](https://github.com/woodpecker-ci/plugin-kaniko/pull/61)]
+- chore(deps): update pre-commit hook adrienverge/yamllint to v1.37.0 [[#60](https://github.com/woodpecker-ci/plugin-kaniko/pull/60)]
+- chore(deps): update pre-commit hook adrienverge/yamllint to v1.36.2 [[#59](https://github.com/woodpecker-ci/plugin-kaniko/pull/59)]
+- chore(deps): update pre-commit hook adrienverge/yamllint to v1.36.1 [[#58](https://github.com/woodpecker-ci/plugin-kaniko/pull/58)]
+- chore(deps): update pre-commit hook adrienverge/yamllint to v1.36.0 [[#57](https://github.com/woodpecker-ci/plugin-kaniko/pull/57)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5.2.1 [[#56](https://github.com/woodpecker-ci/plugin-kaniko/pull/56)]
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v5.2.0 [[#54](https://github.com/woodpecker-ci/plugin-kaniko/pull/54)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.1.3 [[#53](https://github.com/woodpecker-ci/plugin-kaniko/pull/53)]
+
 ## [1.2.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.2.1) - 2025-01-17
 
 ### ❤️ Thanks to all contributors! ❤️
