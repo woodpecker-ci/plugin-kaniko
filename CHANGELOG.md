@@ -1,6 +1,14 @@
 # Changelog
 
-## [1.2.2](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.2.2) - 2025-07-05
+## [1.3.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.3.0) - 2025-08-06
+
+### ❤️ Thanks to all contributors! ❤️
+
+@tkikuchi2000
+
+### ✨ Features
+
+- Multiple Registry Authentication and Uploading [[#68](https://github.com/woodpecker-ci/plugin-kaniko/pull/68)]
 
 ### 📦️ Dependency
 
