@@ -12,6 +12,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v6 [[#64](https://github.com/woodpecker-ci/plugin-kaniko/pull/64)]
 - chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.3.0 [[#69](https://github.com/woodpecker-ci/plugin-kaniko/pull/69)]
 - chore(deps): update alpine docker tag to v3.22 [[#67](https://github.com/woodpecker-ci/plugin-kaniko/pull/67)]
 - chore(deps): update gcr.io/kaniko-project/executor docker tag to v1.24.0 [[#66](https://github.com/woodpecker-ci/plugin-kaniko/pull/66)]
