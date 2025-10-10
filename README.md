@@ -3,7 +3,7 @@
 As Google discontinued and archived the original Kaniko project, we have switched to a community-maintained fork.
 Check it out at [github.com/osscontainertools/kaniko](https://github.com/osscontainertools/kaniko)!
 
-A thin shim-wrapper around the [osscontainertools Kaniko](https://github.com/osscontainertools/kaniko) image to make it behave similar to the [Woodpecker Docker Buildx](https://woodpecker-ci.org/plugins/Docker%20Buildx) plugin.
+A thin shim-wrapper around the [osscontainertools Kaniko](https://github.com/osscontainertools/kaniko) image to make it behave similarly to the [Woodpecker Docker Buildx](https://woodpecker-ci.org/plugins/docker-buildx) plugin.
 
 Example `.woodpecker.yaml`:
 
