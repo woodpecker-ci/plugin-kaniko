@@ -10,6 +10,10 @@
 
 - Switch to maintained fork (osscontainertools/kaniko) [[#76](https://github.com/woodpecker-ci/plugin-kaniko/pull/76)]
 
+### 📚 Documentation
+
+- Document new used base project [[#77](https://github.com/woodpecker-ci/plugin-kaniko/pull/77)]
+
 ### 📦️ Dependency
 
 - chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v6.0.3 [[#75](https://github.com/woodpecker-ci/plugin-kaniko/pull/75)]
