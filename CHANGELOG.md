@@ -8,7 +8,7 @@
 
 ### 💥 Breaking changes
 
-- Switch to maintained fork [[#76](https://github.com/woodpecker-ci/plugin-kaniko/pull/76)]
+- Switch to maintained fork (osscontainertools/kaniko) [[#76](https://github.com/woodpecker-ci/plugin-kaniko/pull/76)]
 
 ### 📦️ Dependency
 
