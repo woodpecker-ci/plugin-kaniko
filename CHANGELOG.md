@@ -1,6 +1,14 @@
 # Changelog
 
-## [1.3.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.3.1) - 2025-10-04
+## [2.0.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.0.0) - 2025-10-10
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543
+
+### 💥 Breaking changes
+
+- Switch to maintained fork [[#76](https://github.com/woodpecker-ci/plugin-kaniko/pull/76)]
 
 ### 📦️ Dependency
 
