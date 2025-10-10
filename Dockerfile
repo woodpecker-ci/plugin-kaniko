@@ -1,4 +1,4 @@
-FROM gcr.io/kaniko-project/executor:v1.24.0-debug
+FROM docker.io/martizih/kaniko:v1.25.6-debug
 
 ENV HOME=/root
 ENV USER=root
