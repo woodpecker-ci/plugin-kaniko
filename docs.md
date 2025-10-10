@@ -6,10 +6,11 @@ tags: [docker, podman, container, build]
 containerImage: woodpeckerci/plugin-kaniko
 containerImageUrl: https://hub.docker.com/r/woodpeckerci/plugin-kaniko
 url: https://github.com/woodpecker-ci/plugin-kaniko
+
 ---
 
 As Google discontinued and archived the original Kaniko project, we have switched to a community-maintained fork.
-Check it out at https://github.com/osscontainertools/kaniko!
+Check it out at [github.com/osscontainertools/kaniko](https://github.com/osscontainertools/kaniko)!
 
 Settings can be defined using the `settings` option for woodpecker plugins. All available settings and their defaults are listed below.
 
