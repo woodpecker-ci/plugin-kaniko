@@ -1,5 +1,26 @@
 # Changelog
 
+## [2.0.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.0.0) - 2025-10-10
+
+### ❤️ Thanks to all contributors! ❤️
+
+@6543
+
+### 💥 Breaking changes
+
+- Switch to maintained fork (osscontainertools/kaniko) [[#76](https://github.com/woodpecker-ci/plugin-kaniko/pull/76)]
+
+### 📚 Documentation
+
+- Document new used base project [[#77](https://github.com/woodpecker-ci/plugin-kaniko/pull/77)]
+
+### 📦️ Dependency
+
+- chore(deps): update woodpeckerci/plugin-docker-buildx docker tag to v6.0.3 [[#75](https://github.com/woodpecker-ci/plugin-kaniko/pull/75)]
+- chore(deps): update pre-commit hook hadolint/hadolint to v2.14.0 [[#74](https://github.com/woodpecker-ci/plugin-kaniko/pull/74)]
+- chore(deps): update pre-commit hook pre-commit/pre-commit-hooks to v6 [[#73](https://github.com/woodpecker-ci/plugin-kaniko/pull/73)]
+- chore(deps): update woodpeckerci/plugin-ready-release-go docker tag to v3.4.0 [[#71](https://github.com/woodpecker-ci/plugin-kaniko/pull/71)]
+
 ## [1.3.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/1.3.0) - 2025-08-06
 
 ### ❤️ Thanks to all contributors! ❤️
