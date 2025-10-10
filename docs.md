@@ -8,6 +8,9 @@ containerImageUrl: https://hub.docker.com/r/woodpeckerci/plugin-kaniko
 url: https://github.com/woodpecker-ci/plugin-kaniko
 ---
 
+As the original kaniko project was sunset and archived by google, we switched to a community maintained fork.
+Check it out at https://github.com/osscontainertools/kaniko !
+
 Settings can be defined using the `settings` option for woodpecker plugins. All available settings and their defaults are listed below.
 
 ## Settings
