@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.0.1) - 2025-10-18
+
+### 📦️ Dependency
+
+- chore(deps): update docker.io/martizih/kaniko docker tag to v1.26.0 [[#78](https://github.com/woodpecker-ci/plugin-kaniko/pull/78)]
+
 ## [2.0.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.0.0) - 2025-10-10
 
 ### ❤️ Thanks to all contributors! ❤️
