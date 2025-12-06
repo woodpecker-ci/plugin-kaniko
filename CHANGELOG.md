@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update alpine docker tag to v3.23 [[#85](https://github.com/woodpecker-ci/plugin-kaniko/pull/85)]
 - chore(deps): update docker.io/martizih/kaniko docker tag to v1.26.3 [[#84](https://github.com/woodpecker-ci/plugin-kaniko/pull/84)]
 - chore(deps): update docker.io/martizih/kaniko docker tag to v1.26.2 [[#82](https://github.com/woodpecker-ci/plugin-kaniko/pull/82)]
 
