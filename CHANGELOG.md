@@ -1,6 +1,14 @@
 # Changelog
 
-## [2.1.2](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.1.2) - 2025-12-06
+## [2.2.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.2.0) - 2025-12-09
+
+### ❤️ Thanks to all contributors! ❤️
+
+@myselfghost
+
+### 📈 Enhancement
+
+- Set EXTRA_OPTS from PLUGIN_EXTRA_OPTS variable [[#86](https://github.com/woodpecker-ci/plugin-kaniko/pull/86)]
 
 ### 📦️ Dependency
 
