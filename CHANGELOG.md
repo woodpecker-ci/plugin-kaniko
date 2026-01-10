@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.2.2](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.2.2) - 2026-01-10
+
+### 📦️ Dependency
+
+- chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v6.0.4 [[#90](https://github.com/woodpecker-ci/plugin-kaniko/pull/90)]
+
 ## [2.2.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.2.1) - 2026-01-10
 
 ### 📦️ Dependency
