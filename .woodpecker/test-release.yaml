@@ -8,7 +8,7 @@ when:
 
 variables:
   - &platforms 'linux/amd64,linux/arm64,linux/s390x,linux/ppc64le,linux/riscv64'
-  - &buildx-plugin 'docker.io/woodpeckerci/plugin-docker-buildx:6.0.3'
+  - &buildx-plugin 'docker.io/woodpeckerci/plugin-docker-buildx:6.0.4'
   # vars used on push / tag events only
   - publish_logins: &publish_logins
       # Default DockerHub login
