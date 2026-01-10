@@ -4,6 +4,7 @@
 
 ### 📦️ Dependency
 
+- chore(deps): update pre-commit hook mrtazz/checkmake to v0.3.2 [[#93](https://github.com/woodpecker-ci/plugin-kaniko/pull/93)]
 - chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v3.4.1 [[#92](https://github.com/woodpecker-ci/plugin-kaniko/pull/92)]
 - chore(deps): update docker.io/woodpeckerci/plugin-docker-buildx docker tag to v6.0.4 [[#90](https://github.com/woodpecker-ci/plugin-kaniko/pull/90)]
 
