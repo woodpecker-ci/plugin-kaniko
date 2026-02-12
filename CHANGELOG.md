@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+### 📈 Enhancement
+
+- Add support for `single-snapshot` and `cleanup` Kaniko flags
+
 ## [2.2.2](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.2.2) - 2026-02-07
 
 ### 📦️ Dependency
