@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.3.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.3.0) - 2026-02-14
+
+### ❤️ Thanks to all contributors! ❤️
+
+@kgrubb
+
+### ✨ Features
+
+- Add support for `single-snapshot` and `cleanup` kaniko flags [[#99](https://github.com/woodpecker-ci/plugin-kaniko/pull/99)]
+
 ## [2.2.2](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.2.2) - 2026-02-07
 
 ### 📦️ Dependency
