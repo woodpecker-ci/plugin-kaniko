@@ -47,6 +47,8 @@ Settings can be defined using the `settings` option for woodpecker plugins. All 
 | `insecure-pull`       | `false` | pull images from a plain HTTP registry.                                                                                                          |
 | `insecure-registry`   | _none_  | use plain HTTP requests when accessing the specified registry.                                                                                   |
 | `destinations`        | _none_  | can specify multiple image names from repositories. This can be used in combination with docker-config-json when using multiple registries.      |
+| `single-snapshot`     | `false` | take a single snapshot of the filesystem at the end of the build, so only one layer will be appended to the base image                               |
+| `cleanup`             | `false` | clean the filesystem at the end of the build                                                                    |
 
 ## Multi registry push example
 

@@ -157,6 +157,14 @@ if [ "${PLUGIN_IGNORE_VAR_RUN:-}" = "false" ]; then
     EXTRA_OPTS=$(concatenate_strings "${EXTRA_OPTS}" "--ignore-var-run=false")
 fi
 
+if [ "${PLUGIN_SINGLE_SNAPSHOT:-}" = "true" ]; then
+    EXTRA_OPTS=$(concatenate_strings "${EXTRA_OPTS}" '--single-snapshot=true')
+fi
+
+if [ "${PLUGIN_CLEANUP:-}" = "true" ]; then
+    EXTRA_OPTS=$(concatenate_strings "${EXTRA_OPTS}" '--cleanup=true')
+fi
+
 # Double quotes can't be used, otherwise kaniko takes all arguments as one.
 # With bash, an array could have been used to avoid disabling this check.
 # shellcheck disable=SC2086
