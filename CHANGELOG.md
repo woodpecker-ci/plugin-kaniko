@@ -9,10 +9,6 @@
 ### 📦️ Dependency
 
 - chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v4.1.0 [[#107](https://github.com/woodpecker-ci/plugin-kaniko/pull/107)]
-- chore(deps): update docker.io/martizih/kaniko docker tag to v1.27.1 [[#106](https://github.com/woodpecker-ci/plugin-kaniko/pull/106)]
-- chore(deps): update docker.io/martizih/kaniko docker tag to v1.27.0 [[#105](https://github.com/woodpecker-ci/plugin-kaniko/pull/105)]
-- chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v4 [[#103](https://github.com/woodpecker-ci/plugin-kaniko/pull/103)]
-- chore(deps): update docker.io/martizih/kaniko docker tag to v1.26.6 [[#101](https://github.com/woodpecker-ci/plugin-kaniko/pull/101)]
 
 ## [2.3.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.3.0) - 2026-02-14
 
