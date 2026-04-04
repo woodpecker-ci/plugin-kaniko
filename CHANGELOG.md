@@ -4,7 +4,7 @@
 
 ### 🔒 Security
 
-- chore(deps): update docker.io/martizih/kaniko docker tag to v1.27.2 [[#108](https://github.com/woodpecker-ci/plugin-kaniko/pull/108)]
+- chore(deps): update docker.io/martizih/kaniko docker tag to v1.27.2 [[#108](https://github.com/woodpecker-ci/plugin-kaniko/pull/108)] (CVE-2026-33747 CVE-2026-33748 CVE-2026-34165 CVE-2026-33762)
 
 ### 📦️ Dependency
 
