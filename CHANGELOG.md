@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.3.1](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.3.1) - 2026-04-04
+
+### 🔒 Security
+
+- chore(deps): update docker.io/martizih/kaniko docker tag to v1.27.2 [[#108](https://github.com/woodpecker-ci/plugin-kaniko/pull/108)] (CVE-2026-33747 CVE-2026-33748 CVE-2026-34165 CVE-2026-33762)
+
+### 📦️ Dependency
+
+- chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v4.1.0 [[#107](https://github.com/woodpecker-ci/plugin-kaniko/pull/107)]
+
 ## [2.3.0](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.3.0) - 2026-02-14
 
 ### ❤️ Thanks to all contributors! ❤️
