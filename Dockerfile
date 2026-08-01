@@ -1,4 +1,4 @@
-FROM docker.io/martizih/kaniko:v1.28.1-debug
+FROM docker.io/martizih/kaniko:v1.28.2-debug
 
 ENV HOME=/root
 ENV USER=root
