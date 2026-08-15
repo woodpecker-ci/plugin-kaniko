@@ -1,9 +1,10 @@
 # Changelog
 
-## [2.3.3](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.3.3) - 2026-08-01
+## [2.3.3](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.3.3) - 2026-08-15
 
 ### 📦️ Dependency
 
+- chore(deps): update docker.io/martizih/kaniko docker tag to v1.28.3 [[#128](https://github.com/woodpecker-ci/plugin-kaniko/pull/128)]
 - chore(deps): update docker.io/martizih/kaniko docker tag to v1.28.2 [[#125](https://github.com/woodpecker-ci/plugin-kaniko/pull/125)]
 - chore(deps): update pre-commit hook hadolint/hadolint to v2.15.1 [[#124](https://github.com/woodpecker-ci/plugin-kaniko/pull/124)]
 - chore(deps): update docker.io/martizih/kaniko docker tag to v1.28.1 [[#123](https://github.com/woodpecker-ci/plugin-kaniko/pull/123)]
