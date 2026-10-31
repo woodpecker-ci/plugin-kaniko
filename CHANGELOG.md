@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.3.5](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.3.5) - 2026-10-31
+
+### 📦️ Dependency
+
+- chore(deps): update docker.io/woodpeckerci/plugin-ready-release-go docker tag to v4.1.3 [[#135](https://github.com/woodpecker-ci/plugin-kaniko/pull/135)]
+
 ## [2.3.4](https://github.com/woodpecker-ci/plugin-kaniko/releases/tag/2.3.4) - 2026-10-31
 
 ### 📦️ Dependency
